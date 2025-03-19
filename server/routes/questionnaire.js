@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { Questionnaire, UserResponse } = require("../models/Questionnaire");
-const PartialResponse = require("../models/PartialResponse");
+// const PartialResponse = require("../models/PartialResponse");
 const upload = require("../middleware/uploadImage");
 
 // Create a new questionnaire
@@ -37,32 +37,32 @@ router.post("/upload-image", upload.single("image"), async (req, res) => {
 });
 
 // Save partial responses
-router.post("/save-progress", async (req, res) => {
-  try {
-    const { questionnaireId, answers } = req.body;
-    const existingResponse = await PartialResponse.findOne({
-      questionnaireId,
-    });
+// router.post("/save-progress", async (req, res) => {
+//   try {
+//     const { questionnaireId, answers } = req.body;
+//     const existingResponse = await PartialResponse.findOne({
+//       questionnaireId,
+//     });
 
-    if (existingResponse) {
-      // Update existing partial response
-      existingResponse.answers = answers;
-      await existingResponse.save();
-      res.status(200).send(existingResponse);
-    } else {
-      // Create a new partial response
-      const newResponse = new PartialResponse({
-        userId,
-        questionnaireId,
-        answers,
-      });
-      await newResponse.save();
-      res.status(201).send(newResponse);
-    }
-  } catch (error) {
-    res.status(500).send({ error: "Failed to save progress" });
-  }
-});
+//     if (existingResponse) {
+//       // Update existing partial response
+//       existingResponse.answers = answers;
+//       await existingResponse.save();
+//       res.status(200).send(existingResponse);
+//     } else {
+//       // Create a new partial response
+//       const newResponse = new PartialResponse({
+//         userId,
+//         questionnaireId,
+//         answers,
+//       });
+//       await newResponse.save();
+//       res.status(201).send(newResponse);
+//     }
+//   } catch (error) {
+//     res.status(500).send({ error: "Failed to save progress" });
+//   }
+// });
 
 router.post("/:id/submit", async (req, res) => {
   try {
