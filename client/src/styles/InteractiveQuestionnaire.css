@@ -1,0 +1,117 @@
+.questionnaire {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.questionnaire h1 {
+  text-align: center;
+}
+
+.questionnaire-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: left;
+  padding:0 0 10px 0;
+}
+
+.questionnaire-description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.questionnaire-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.single-choice,
+.multiple-choice {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-choice-label,
+.multiple-choice-label {
+  display: flex;
+  font-size: 1rem;
+}
+
+.single-choice-input,
+.multiple-choice-input {
+ width: 15px;
+ margin: 5px;
+}
+
+
+form > div {
+  margin-bottom: 10px;
+}
+
+
+.image-question {
+  text-align: center;
+}
+
+.image-question-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.save-button,
+.submit-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.submit-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+.save-button:hover,
+.submit-button:hover {
+  opacity: 0.8;
+}
+
+.time-spent {
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 20px;
+}

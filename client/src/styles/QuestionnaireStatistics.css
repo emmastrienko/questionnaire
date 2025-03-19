@@ -1,0 +1,59 @@
+
+/* Main container */
+.statistics-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  font-family: Arial, sans-serif;
+}
+
+.statistics-container h1 {
+  text-align: center;
+  color: #333;
+}
+
+.statistics-container p {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stat-item {
+  margin-bottom: 20px;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.chart-container {
+  margin-bottom: 40px;
+}
+
+.chart {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chart canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .chart-container {
+    margin-bottom: 20px;
+  }
+
+  .chart {
+    width: 100%;
+  }
+
+  .stat-item {
+    padding: 15px;
+  }
+}
