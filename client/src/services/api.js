@@ -1,8 +1,11 @@
 import axios from "axios";
 
-const apiUrl = import.meta.env.MODE === "development" 
-    ? "http://localhost:5000/api/questionnaires" 
-    : "/api/questionnaires";
+// const apiUrl = import.meta.env.MODE === "development" 
+//     ? "http://localhost:5000/api/questionnaires" 
+//     : "/api/questionnaires";
+
+const apiUrl = "/api/questionnaires"
+
 
 // export const getQuestionnaires = async (page) => {
 //   try {
