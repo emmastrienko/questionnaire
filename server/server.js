@@ -1,33 +1,42 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const path = require("path");
-const dotenv = require("dotenv");
+import dotenv from "dotenv";
+import express from "express";
+import cors from "cors";
+import mongoose from "mongoose";
+import path from "path";
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-const questionnaireRoutes = require("./routes/questionnaire");
+// Import routes dynamically
+import questionnaireRoutes from "./routes/questionnaire.js"; // Use import for routes
+
 app.use("/api/questionnaires", questionnaireRoutes);
 
-app.use("/uploads", express.static("uploads")); // Enables access to uploaded images
+// Serve uploaded files statically
+app.use("/uploads", express.static("uploads"));
 
-// if (proccess.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../client/dist")));
+// Define the __dirname workaround for ES Modules
+const __dirname = path.resolve();
 
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
-//   });
-// }
+// Serve the React app in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
 
-const PORT = process.env.PORT;
-//const __dirname = path.resolve();
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client", "build", "index.html"));
+  });
+}
 
-app.listen(PORT, () => console.log("Server running on port 5000"));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -56,5 +56,4 @@ Thumbs.db
 # Ignore generated files
 coverage/
 node_modules/
-public/
 .cache/

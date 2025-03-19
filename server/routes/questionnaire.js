@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { Questionnaire, UserResponse } = require("../models/Questionnaire");
+import { Questionnaire, UserResponse } from "../models/Questionnaire.js";
 // const PartialResponse = require("../models/PartialResponse");
-const upload = require("../middleware/uploadImage");
+import upload from "../middleware/uploadImage.js";
 
 // Create a new questionnaire
 router.post("/create", async (req, res) => {
@@ -348,4 +348,4 @@ router.get("/:questionnaireId/statistics", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

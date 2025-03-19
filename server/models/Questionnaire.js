@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 // Define the schema for questions
@@ -29,7 +29,7 @@ const questionnaireSchema = new Schema({
 // Adding sorting functionality: using MongoDB's index to sort by question count or completions
 questionnaireSchema.index({ name: 1, totalCompletions: 1 });
 
-const Questionnaire = mongoose.model("Questionnaire", questionnaireSchema);
+export const Questionnaire = mongoose.model("Questionnaire", questionnaireSchema);
 
 const answerSchema = new mongoose.Schema({
   answer: {
@@ -56,10 +56,5 @@ const userResponseSchema = new mongoose.Schema({
 });
 
 // Creating a model for storing user responses
-const UserResponse = mongoose.model("UserResponse", userResponseSchema);
+export const UserResponse = mongoose.model("UserResponse", userResponseSchema);
 
-// Export both models
-module.exports = {
-  Questionnaire,
-  UserResponse,
-};
