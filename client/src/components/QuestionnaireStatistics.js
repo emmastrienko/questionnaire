@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getQuestionnaireStatistics } from "../services/api";
 import { Bar, Pie } from "react-chartjs-2";
 import {
