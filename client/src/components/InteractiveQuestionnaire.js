@@ -130,7 +130,7 @@ const InteractiveQuestionnaire = () => {
       localStorage.removeItem(`progress_${sessionId}_${id}`);
 
       alert("Questionnaire submitted!");
-      navigate("/");
+      navigate(`/statistics/${id}`);
     } catch (error) {
       console.error("Error submitting questionnaire:", error);
     }
