@@ -154,6 +154,8 @@ const QuestionnaireStatistics = () => {
           <Pie data={pieChartData} />
         </div>
       </div>
+
+      <Link to={`/`}>Return to main page</Link>
     </div>
   );
 };
